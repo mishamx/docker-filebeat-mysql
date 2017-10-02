@@ -1,0 +1,15 @@
+filebeat:
+    prospectors:
+        -
+            paths:
+                - "/var/log/mysql/*.log"
+            document_type: mysql-error
+            encoding: utf-8
+output:
+    logstash:
+        enabled: true
+        hosts: ["${LOGSTASH_HOST}:${LOGSTASH_PORT}"]
+        index: ${INDEX_NAME}
+        encoding: ${ENCODING}
+
+     
